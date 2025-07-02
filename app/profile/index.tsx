@@ -1,9 +1,9 @@
-import { View, Text, Button, StyleSheet } from "react-native";
-import { router } from "expo-router";
+import { View, Text, StyleSheet } from "react-native";
 import { useThemeSwitcher } from "@/context/theme-context";
 
-export default function NotFound() {
+export default function ProfileTab() {
   const { theme } = useThemeSwitcher();
+
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -13,15 +13,13 @@ export default function NotFound() {
     },
     text: {
       fontSize: 24,
-      marginBottom: 20,
       color: theme.colors.text,
     },
   });
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>❌ Oops! Page not found.</Text>
-      <Button title="Go Home" onPress={() => router.replace("/")} />
+      <Text style={styles.text}>👤 Profile Tab Screen</Text>
     </View>
   );
 }

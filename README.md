@@ -47,22 +47,27 @@ nft-marketplace-showcase/
 ## 🛠️ Technologies Used
 
 ### Mobile App
+
 - React Native
 - Expo
 
 ### Web Landing Page
+
 - React.js
 - Tailwind CSS
 
 ### Styling
+
 - Tailwind CSS
 - React Native StyleSheet
 
 ### State Management
+
 - React Hooks (useState, useEffect)
 - Context API (if needed)
 
 ### Routing (web)
+
 - Basic linking (no complex React Router setup)
 
 ## 📦 Main Libraries
@@ -95,6 +100,7 @@ nft-marketplace-showcase/
 ### Installation
 
 1. Clone the repository
+
    ```bash
    git clone https://github.com/yourusername/nft-marketplace.git
    cd nft-marketplace
@@ -108,11 +114,13 @@ nft-marketplace-showcase/
 ### Running the App
 
 For the Mobile App (React Native):
+
 ```bash
 npx expo start
 ```
 
 Then choose your preferred method to run the app:
+
 - Press 'i' for iOS simulator
 - Press 'a' for Android emulator
 - Scan QR code with Expo Go app on your physical device

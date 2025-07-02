@@ -34,6 +34,12 @@
         }
       ]
     ],
+    "fonts": [
+      {
+        "asset": "./assets/fonts/SpaceMono-Regular.ttf",
+        "family": "SpaceMono"
+      }
+    ],
     "experiments": {
       "typedRoutes": true
     },
