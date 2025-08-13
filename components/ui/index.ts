@@ -4,4 +4,4 @@ export { Label } from './label';
 export { Input } from './input';
 export { Dropdown } from './dropdown';
 export { Dialog } from './dialog';
-export { Menu } from './menu'; 
+export { Menu } from './menu';

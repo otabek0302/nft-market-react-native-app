@@ -2,10 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { View, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { useThemeSwitcher } from "@/context/theme-context";
-import { Text } from "@/components/ui/text";
 import { Menu } from "@/components/ui/menu";
 import { useRouter } from "expo-router";
 import { Button } from "../ui";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Header() {
   const { theme, isDark, toggleTheme } = useThemeSwitcher();
@@ -28,13 +28,13 @@ export default function Header() {
       alignItems: "center",
     },
     logo: {
-      width: 40,
-      height: 40,
+      width: 48,
+      height: 48,
       marginRight: 8,
     },
     icon: {
-      width: 28,
-      height: 28,
+      width: 24,
+      height: 24,
     },
     row: {
       flexDirection: "row",
@@ -51,10 +51,10 @@ export default function Header() {
         </TouchableOpacity>
         <View style={styles.row}>
           <Button variant="ghost" size="icon" onPress={toggleTheme} style={{ backgroundColor: theme.colors.card, borderRadius: 8 }}>
-            <Text variant="button">{isDark ? "☀️" : "🌙"}</Text>
+            {isDark ? <Ionicons name="sunny" size={18} color={theme.colors.primary} /> : <Ionicons name="moon" size={18} color={theme.colors.primary} />}
           </Button>
           <Button variant="ghost" size="icon" onPress={() => setIsMenuOpen(true)} style={{ backgroundColor: theme.colors.card, borderRadius: 8 }}>
-            <Image source={require("@/assets/images/menu.png")} style={styles.icon} resizeMode="contain" />
+            <Ionicons name="menu" size={24} color={theme.colors.primary} />
           </Button>
         </View>
       </View>
@@ -62,3 +62,5 @@ export default function Header() {
     </>
   );
 }
+
+

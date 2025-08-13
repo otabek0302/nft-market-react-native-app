@@ -1,13 +1,14 @@
 import React from "react";
+
 import { View, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { useThemeSwitcher } from "@/context/theme-context";
 import { Text } from "./text";
-import { Button } from "./button";
 import { useRouter } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
 interface MenuItem {
   label: string;
-  href: "/home" | "/profile" | "/";
+  href: string;
   icon?: string;
 }
 
@@ -17,16 +18,16 @@ interface MenuProps {
 }
 
 const menuItems: MenuItem[] = [
-  { label: "Home", href: "/home", icon: "🏠" },
-  { label: "Profile", href: "/profile", icon: "👤" },
+  { label: "Profile", href: "/profile", icon: "person" },
+  { label: "Collections", href: "/collections", icon: "list" },
 ];
 
 export const Menu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
-  const { theme, isDark, toggleTheme } = useThemeSwitcher();
+  const { theme } = useThemeSwitcher();
   const router = useRouter();
 
   const handleNavigation = (href: MenuItem["href"]) => {
-    router.push(href);
+    router.push(href as any);
     onClose();
   };
 
@@ -35,12 +36,12 @@ export const Menu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
       <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={onClose}>
         <View style={[styles.menuContainer, { backgroundColor: theme.colors.card }]}>
           <View style={styles.header}>
-            <Text variant="heading" style={{ color: theme.colors.text }}>
+            <Text variant="heading" style={{ color: theme.colors.text, fontSize: 24 }}>
               Menu
             </Text>
             <TouchableOpacity onPress={onClose} style={styles.closeButton}>
               <Text variant="title" style={{ color: theme.colors.text }}>
-                ✕
+                <Ionicons name="close" size={24} color={theme.colors.text} />
               </Text>
             </TouchableOpacity>
           </View>
@@ -48,9 +49,7 @@ export const Menu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
           <View style={styles.menuItems}>
             {menuItems.map((item, index) => (
               <TouchableOpacity key={index} style={[styles.menuItem, { borderBottomColor: theme.colors.background }]} onPress={() => handleNavigation(item.href)}>
-                <Text variant="body" style={{ color: theme.colors.text, marginRight: 8 }}>
-                  {item.icon}
-                </Text>
+                <Ionicons name={item.icon as any} size={16} color={theme.colors.primary} style={{ marginRight: 8 }} />
                 <Text variant="body" style={{ color: theme.colors.text }}>
                   {item.label}
                 </Text>
@@ -59,9 +58,6 @@ export const Menu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
           </View>
 
           <View style={styles.footer}>
-            <Button variant="outline" size="sm" onPress={toggleTheme} style={{ marginBottom: 12 }}>
-              {isDark ? "☀️ Light Mode" : "🌙 Dark Mode"}
-            </Button>
             <Text variant="caption" style={{ color: theme.colors.text, textAlign: "center" }}>
               NFT Marketplace v1.0
             </Text>

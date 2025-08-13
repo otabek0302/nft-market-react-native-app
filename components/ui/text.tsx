@@ -3,7 +3,7 @@ import { Text as RNText, TextProps, StyleSheet } from "react-native";
 import { fontFamily } from "@/utils/fonts";
 import { useThemeSwitcher } from "@/context/theme-context";
 
-export type TextVariant = "display" | "heading" | "title" | "subtitle" | "body" | "caption" | "button" | "small" | "tiny";
+export type TextVariant = "display" | "heading" | "title" | "subtitle" | "body" | "caption" | "button" | "small" | "tiny" | "error";
 
 interface CustomTextProps extends TextProps {
   variant?: TextVariant;
@@ -31,6 +31,8 @@ export const Text: React.FC<CustomTextProps> = ({ variant = "body", style, child
         return styles.tiny;
       case "button":
         return styles.button;
+      case "error":
+        return styles.error;
       default:
         return styles.body;
     }
@@ -82,5 +84,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     letterSpacing: 0.5,
+  },
+  error: {
+    color: "#FF0000",
+    fontSize: 12,
   },
 });

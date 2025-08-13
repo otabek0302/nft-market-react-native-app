@@ -33,7 +33,9 @@ export const Dropdown: React.FC<DropdownProps> = ({ options, value, onValueChang
       )}
       <Button variant="outline" onPress={() => setVisible(true)} disabled={disabled} style={{ justifyContent: "flex-start", minWidth: 120 }}>
         {selectedOption ? (
-          selectedOption.label
+          <Text variant="body" style={{ color: theme.colors.text }}>
+            {selectedOption.label}
+          </Text>
         ) : (
           <Text variant="body" style={{ color: theme.colors.text + "99" }}>
             {placeholder}

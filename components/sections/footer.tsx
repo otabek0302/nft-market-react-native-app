@@ -9,11 +9,16 @@ export default function Footer() {
   const styles = StyleSheet.create({
     container: {
       paddingHorizontal: 24,
-      paddingVertical: 8,
+      paddingTop: 2,
+      paddingBottom: 16,
+      backgroundColor: theme.colors.background,
+      borderTopWidth: 1,
+      borderColor: theme.colors.border,
     },
     copyright: {
       textAlign: "center",
-      borderTopWidth: 1,
+      paddingTop: 16,
+      paddingBottom: 16,
     },
   });
 
